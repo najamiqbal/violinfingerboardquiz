@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Press on the corresponding button"
+        android:layout_below="@id/toolbar1"
+        android:fontFamily="@font/merriweatherregular"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:padding="6dp">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_below="@id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+
+
+            <ImageView
+                android:id="@+id/image_question"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_questionmark"
+                android:layout_below="@id/image_question"
+                android:layout_centerHorizontal="true">
+
+            </ImageView>
+
+
+            <TextView
+                android:id="@+id/tv_wrong_counter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wrong:"
+                android:layout_alignParentBottom="true"
+                android:textSize="18sp"
+                android:textColor="#F60707"
+                android:textAlignment="center"
+                android:padding="5dp"
+                android:fontFamily="@font/merriweatherregular"
+                android:layout_marginBottom="10dp">
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/tv_correct_counter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correct:"
+                android:layout_above="@id/tv_wrong_counter"
+                android:textSize="18sp"
+                android:textColor="#4CAF50"
+                android:textAlignment="center"
+                android:padding="5dp"
+                android:fontFamily="@font/merriweatherregular"
+                android:layout_marginBottom="6dp">
+            </TextView>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/sss"
+            android:layout_weight="0.8">
+
+
+<!--            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#cdced2" />
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#cdced2" />
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#cdced2" />
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#cdced2" />
+
+
+
+            </LinearLayout>-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+
+
+                <TextView
+                    android:id="@+id/g1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/nonselecteditem_dot"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/d1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/e1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/a1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+            </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1st"
+                    android:textStyle="bold"
+                    android:paddingStart="3dp">
+                </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:weightSum="4">
+
+
+                <TextView
+                    android:id="@+id/g2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/nonselecteditem_dot"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/d2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/e2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/a2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+            </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1st"
+                    android:textStyle="bold"
+                    android:paddingStart="3dp">
+                </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+
+                <TextView
+                    android:id="@+id/g3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/nonselecteditem_dot"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/d3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/e3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/a3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+            </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2nd"
+                    android:textStyle="bold"
+                    android:paddingStart="3dp">
+                </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:weightSum="4">
+
+
+                <TextView
+                    android:id="@+id/g4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/nonselecteditem_dot"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/d4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/e4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/a4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+            </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2nd"
+                    android:textStyle="bold"
+                    android:paddingStart="3dp">
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:weightSum="4">
+
+
+                    <TextView
+                        android:id="@+id/g5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/nonselecteditem_dot"
+                        >
+                    </TextView>
+                    <TextView
+                        android:id="@+id/d5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/e5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+                    <TextView
+                        android:id="@+id/a5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3rd"
+                    android:textStyle="bold"
+                    android:paddingStart="3dp">
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:weightSum="4">
+
+
+                    <TextView
+                        android:id="@+id/g6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/nonselecteditem_dot"
+                        >
+                    </TextView>
+                    <TextView
+                        android:id="@+id/d6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/e6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+                    <TextView
+                        android:id="@+id/a6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3rd"
+                    android:textStyle="bold"
+                    android:paddingStart="3dp">
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:weightSum="4">
+
+
+                    <TextView
+                        android:id="@+id/g7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/nonselecteditem_dot"
+                        >
+                    </TextView>
+                    <TextView
+                        android:id="@+id/d7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/e7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+                    <TextView
+                        android:id="@+id/a7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4th"
+                    android:textStyle="bold"
+                    android:paddingStart="3dp">
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:weightSum="4">
+
+
+                    <TextView
+                        android:id="@+id/g8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/nonselecteditem_dot"
+                        >
+                    </TextView>
+                    <TextView
+                        android:id="@+id/d8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/e8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+                    <TextView
+                        android:id="@+id/a8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

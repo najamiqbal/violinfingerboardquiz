@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/mainpage"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/top_tv"
+        android:layout_margin="20dp"
+        >
+    </ImageView>
+
+
+    <TextView
+        android:id="@+id/top_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Violin Fingerboard"
+        android:textColor="#964419"
+        android:textSize="20sp"
+        android:fontFamily="@font/merriweatherbold"
+        android:textStyle="bold"
+        android:layout_above="@+id/splash_line"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ImageView
+        android:id="@+id/splash_line"
+        android:layout_width="150dp"
+        android:layout_height="10dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/ic_minus"
+        android:layout_centerInParent="true"
+        />
+    <TextView
+        android:id="@+id/bottom_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz"
+        android:fontFamily="@font/merriweatherbold"
+        android:textColor="#964419"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/splash_line"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

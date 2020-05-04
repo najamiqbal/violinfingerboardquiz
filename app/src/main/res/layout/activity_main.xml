@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    </androidx.appcompat.widget.Toolbar>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/toolbar1"
+    android:background="@drawable/backgtound_png"
+    >
+
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/mainpage">
+
+    </ImageView>
+
+
+    <TextView
+        android:id="@+id/tv_center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Violin Fingerboard \n Quiz"
+        android:textSize="28sp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:fontFamily="@font/merriweatherregular"
+        android:layout_above="@id/l_center"
+        android:textAlignment="center">
+    </TextView>
+
+<LinearLayout
+    android:id="@+id/l_center"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_centerInParent="true"
+    android:orientation="vertical">
+</LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_mood1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Mode 1"
+        android:layout_below="@id/l_center"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFF"
+        android:background="@drawable/button_background"
+        >
+    </Button>
+
+    <Button
+        android:id="@+id/btn_mood2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Mode 2"
+        android:layout_below="@id/btn_mood1"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFF"
+        android:background="@drawable/button_background"
+        >
+    </Button>
+
+</RelativeLayout>
+</RelativeLayout>

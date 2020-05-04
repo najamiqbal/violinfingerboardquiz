@@ -1,0 +1,2 @@
+rootProject.name='violin fingerboard quiz'
+include ':app'
