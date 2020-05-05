@@ -1,26 +1,35 @@
 package app.softsolstudio.violinfingerboardquiz;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class MoodOneActivity extends AppCompatActivity implements View.OnClickListener {
     Toolbar toolbar;
     String answer_1 = "", anwser_2 = "";
-    int wrong_counter = 0, corect_counter = 0;
+    int wrong_counter = 0, corect_counter = 0,total_counter=0;
     Common common=new Common();
     Animation frombottom, fromtop;
     TextView tv_d1, tv_d2, tv_d3, tv_d4, tv_d5, tv_d6, tv_d7, tv_d8, tv_g1, tv_g2, tv_g3, tv_g4, tv_g5, tv_g6, tv_g7, tv_g8, tv_e1,
@@ -111,6 +120,11 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void RandomQuestion() {
+        total_counter++;
+        if (total_counter>15){
+            showDialog();
+        }else {
+
         final int min = 1;
         final int max = 44;
         final int random = new Random().nextInt((max - min) + 1) + min;
@@ -121,7 +135,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "d0";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 2:
                 question_image.setBackgroundResource(R.drawable.d1);
@@ -142,14 +156,14 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "d2";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 5:
                 question_image.setBackgroundResource(R.drawable.d3);
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "d3";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 6:
                 question_image.setBackgroundResource(R.drawable.d4);
@@ -170,7 +184,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "d5";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 9:
                 question_image.setBackgroundResource(R.drawable.d6);
@@ -190,7 +204,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 question_image.setBackgroundResource(R.drawable.d7);
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
-                anwser_2="";
+                anwser_2 = "";
                 answer_1 = "d7";
                 break;
             case 12:
@@ -198,7 +212,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "g0";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 13:
                 question_image.setBackgroundResource(R.drawable.g1);
@@ -219,7 +233,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "g2";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 16:
                 question_image.setBackgroundResource(R.drawable.g3);
@@ -240,14 +254,14 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "g4";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 19:
                 question_image.setBackgroundResource(R.drawable.g5);
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "g5";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 20:
                 question_image.setBackgroundResource(R.drawable.g6);
@@ -268,14 +282,14 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "g7";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 23:
                 question_image.setBackgroundResource(R.drawable.a0);
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "a1";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 24:
                 question_image.setBackgroundResource(R.drawable.a1);
@@ -296,14 +310,14 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "a2";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 27:
                 question_image.setBackgroundResource(R.drawable.a3);
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "a3";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 28:
                 question_image.setBackgroundResource(R.drawable.a4);
@@ -324,7 +338,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "a5";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 31:
                 question_image.setBackgroundResource(R.drawable.a6);
@@ -345,21 +359,21 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "a7";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 34:
                 question_image.setBackgroundResource(R.drawable.e0);
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "e0";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 35:
                 question_image.setBackgroundResource(R.drawable.e1);
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "e1";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 36:
                 question_image.setBackgroundResource(R.drawable.e2);
@@ -380,7 +394,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "e3";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 39:
                 question_image.setBackgroundResource(R.drawable.e4);
@@ -401,7 +415,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "e5";
-                anwser_2="";
+                anwser_2 = "";
                 break;
             case 42:
                 question_image.setBackgroundResource(R.drawable.e6);
@@ -422,12 +436,63 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
                 question_image.setAnimation(frombottom);
                 answer_1 = "e7";
-                anwser_2="";
+                anwser_2 = "";
                 break;
+        }
 
         }
 
     }
+
+
+
+    private void showDialog() {
+
+        LayoutInflater layoutInflaterAndroid = LayoutInflater.from(MoodOneActivity.this);
+        @SuppressLint("InflateParams") View mView = layoutInflaterAndroid.inflate(R.layout.dialog_popup_message, null);
+        AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(this);
+        alertDialogBuilderUserInput.setView(mView);
+        alertDialogBuilderUserInput.setCancelable(false);
+
+        final Button btnTryAgain = mView.findViewById(R.id.btn_try_again);
+        final Button txtCancel = mView.findViewById(R.id.btn_quit);
+        TextView txttotal = mView.findViewById(R.id.tx_total);
+        TextView txtWrong = mView.findViewById(R.id.tx_wrong);
+        TextView txtCorrect = mView.findViewById(R.id.tx_correct);
+        txtWrong.setText("Wrong "+wrong_counter);
+        txtCorrect.setText("Correct "+corect_counter);
+        txttotal.setText("Total Scores "+corect_counter+"/15");
+
+        alertDialogBuilderUserInput
+                .setCancelable(false);
+
+        AlertDialog alertDialogAndroid = alertDialogBuilderUserInput.create();
+
+        alertDialogAndroid.setOnShowListener(new DialogInterface.OnShowListener() {
+
+            @Override
+            public void onShow(final DialogInterface dialog) {
+                btnTryAgain.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        startActivity(new Intent(MoodOneActivity.this,MoodOneActivity.class));
+                        finish();
+                    }
+                });
+                txtCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        finish();
+                    }
+                });
+            }
+        });
+        alertDialogAndroid.show();
+    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -455,6 +520,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    RandomQuestion();
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -469,6 +535,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    RandomQuestion();
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -484,6 +551,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
+                    RandomQuestion();
                 }
                 break;
             case R.id.g4:
@@ -498,6 +566,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
+                    RandomQuestion();
 
                 }
                 break;
@@ -513,6 +582,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
+                    RandomQuestion();
                 }
                 break;
             case R.id.g6:
@@ -527,6 +597,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
+                    RandomQuestion();
 
                 }
                 break;
@@ -542,6 +613,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
+                    RandomQuestion();
 
                 }
                 break;
@@ -557,6 +629,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
+                    RandomQuestion();
 
                 }
                 break;
@@ -572,6 +645,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
+                    RandomQuestion();
 
                 }
                 break;
@@ -587,7 +661,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.d3:
@@ -602,7 +676,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.d4:
@@ -617,7 +691,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.d5:
@@ -632,7 +706,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                    // Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.d6:
@@ -647,7 +721,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.d7:
@@ -662,7 +736,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.d8:
@@ -677,7 +751,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                    // Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.a1:
@@ -692,7 +766,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.a2:
@@ -707,7 +781,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.a3:
@@ -722,7 +796,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.a4:
@@ -737,7 +811,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.a5:
@@ -752,7 +826,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.a6:
@@ -767,7 +841,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.a7:
@@ -782,7 +856,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.a8:
@@ -797,7 +871,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.e1:
@@ -812,7 +886,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.e2:
@@ -827,7 +901,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.e3:
@@ -842,7 +916,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.e4:
@@ -857,7 +931,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.e5:
@@ -872,7 +946,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.e6:
@@ -887,7 +961,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.e7:
@@ -902,7 +976,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
             case R.id.e8:
@@ -917,7 +991,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-
+                    RandomQuestion();
                 }
                 break;
 
