@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="Wrong:"
                 android:layout_alignParentBottom="true"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="#F60707"
                 android:textAlignment="center"
                 android:padding="5dp"
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:text="Correct:"
                 android:layout_above="@id/tv_wrong_counter"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="#4CAF50"
                 android:textAlignment="center"
                 android:padding="5dp"
@@ -140,13 +140,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:weightSum="8">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="15dp"
                 android:orientation="horizontal"
@@ -178,17 +180,6 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/e1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/nonselecteditem_dot"
-                    android:layout_weight="1"
-                    >
-                </TextView>
-                <TextView
                     android:id="@+id/a1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -199,19 +190,33 @@
                     android:layout_weight="1"
                     >
                 </TextView>
-            </LinearLayout>
+
                 <TextView
+                    android:id="@+id/e1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+            </LinearLayout>
+<!--                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1st"
                     android:textStyle="bold"
                     android:paddingStart="3dp">
-                </TextView>
+                </TextView>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:weightSum="4">
@@ -223,7 +228,9 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/nonselecteditem_dot"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:background="@drawable/nonselected_red_dot"
                     >
                 </TextView>
                 <TextView
@@ -231,42 +238,44 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/nonselecteditem_dot"
+                    android:background="@drawable/nonselected_red_dot"
                     android:layout_weight="1"
                     >
                 </TextView>
 
-                <TextView
-                    android:id="@+id/e2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/nonselecteditem_dot"
-                    android:layout_weight="1"
-                    >
-                </TextView>
                 <TextView
                     android:id="@+id/a2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:background="@drawable/nonselecteditem_dot"
+                    android:background="@drawable/nonselected_red_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/e2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselected_red_dot"
                     android:layout_weight="1"
                     >
                 </TextView>
             </LinearLayout>
-                <TextView
+<!--                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1st"
                     android:textStyle="bold"
                     android:paddingStart="3dp">
-                </TextView>
+                </TextView>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
                 android:layout_marginEnd="15dp"
                 android:orientation="horizontal"
                 android:weightSum="4">
@@ -278,6 +287,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
+                    android:text="1"
+                    android:textAlignment="center"
                     android:background="@drawable/nonselecteditem_dot"
                     >
                 </TextView>
@@ -292,15 +303,6 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/e3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/nonselecteditem_dot"
-                    android:layout_weight="1"
-                    >
-                </TextView>
-                <TextView
                     android:id="@+id/a3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -309,20 +311,31 @@
                     android:layout_weight="1"
                     >
                 </TextView>
+                <TextView
+                    android:id="@+id/e3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselecteditem_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
             </LinearLayout>
 
-                <TextView
+<!--                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2nd"
                     android:textStyle="bold"
                     android:paddingStart="3dp">
-                </TextView>
+                </TextView>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginStart="15dp"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:weightSum="4">
 
@@ -333,7 +346,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/nonselecteditem_dot"
+                    android:text="2"
+                    android:textAlignment="center"
+                    android:background="@drawable/nonselected_red_dot"
                     >
                 </TextView>
                 <TextView
@@ -341,44 +356,46 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/nonselecteditem_dot"
+                    android:background="@drawable/nonselected_red_dot"
                     android:layout_weight="1"
                     >
                 </TextView>
 
-                <TextView
-                    android:id="@+id/e4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/nonselecteditem_dot"
-                    android:layout_weight="1"
-                    >
-                </TextView>
                 <TextView
                     android:id="@+id/a4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:background="@drawable/nonselecteditem_dot"
+                    android:background="@drawable/nonselected_red_dot"
+                    android:layout_weight="1"
+                    >
+                </TextView>
+                <TextView
+                    android:id="@+id/e4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nonselected_red_dot"
                     android:layout_weight="1"
                     >
                 </TextView>
             </LinearLayout>
 
-                <TextView
+<!--                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2nd"
                     android:textStyle="bold"
                     android:paddingStart="3dp">
-                </TextView>
+                </TextView>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_weight="1"
                     android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
                     android:weightSum="4">
 
@@ -389,6 +406,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        android:text="2"
+                        android:textAlignment="center"
                         android:background="@drawable/nonselecteditem_dot"
                         >
                     </TextView>
@@ -403,7 +422,7 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/e5"
+                        android:id="@+id/a5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -412,7 +431,7 @@
                         >
                     </TextView>
                     <TextView
-                        android:id="@+id/a5"
+                        android:id="@+id/e5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -422,6 +441,7 @@
                     </TextView>
                 </LinearLayout>
 
+<!--
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -429,12 +449,15 @@
                     android:textStyle="bold"
                     android:paddingStart="3dp">
                 </TextView>
+-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
                     android:layout_marginEnd="15dp"
                     android:weightSum="4">
 
@@ -445,6 +468,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        android:text="3"
+                        android:textAlignment="center"
                         android:background="@drawable/nonselecteditem_dot"
                         >
                     </TextView>
@@ -459,15 +484,6 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/e6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/nonselecteditem_dot"
-                        android:layout_weight="1"
-                        >
-                    </TextView>
-                    <TextView
                         android:id="@+id/a6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -476,8 +492,18 @@
                         android:layout_weight="1"
                         >
                     </TextView>
+                    <TextView
+                        android:id="@+id/e6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselecteditem_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
                 </LinearLayout>
 
+<!--
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -485,12 +511,15 @@
                     android:textStyle="bold"
                     android:paddingStart="3dp">
                 </TextView>
+-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
                     android:weightSum="4">
 
@@ -501,7 +530,9 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
-                        android:background="@drawable/nonselecteditem_dot"
+                        android:text="3"
+                        android:textAlignment="center"
+                        android:background="@drawable/nonselected_red_dot"
                         >
                     </TextView>
                     <TextView
@@ -509,31 +540,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:background="@drawable/nonselecteditem_dot"
+                        android:background="@drawable/nonselected_red_dot"
                         android:layout_weight="1"
                         >
                     </TextView>
 
-                    <TextView
-                        android:id="@+id/e7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/nonselecteditem_dot"
-                        android:layout_weight="1"
-                        >
-                    </TextView>
                     <TextView
                         android:id="@+id/a7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:background="@drawable/nonselecteditem_dot"
+                        android:background="@drawable/nonselected_red_dot"
+                        android:layout_weight="1"
+                        >
+                    </TextView>
+                    <TextView
+                        android:id="@+id/e7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/nonselected_red_dot"
                         android:layout_weight="1"
                         >
                     </TextView>
                 </LinearLayout>
 
+<!--
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -541,12 +573,15 @@
                     android:textStyle="bold"
                     android:paddingStart="3dp">
                 </TextView>
+-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:layout_marginEnd="15dp"
                     android:weightSum="4">
 
@@ -557,6 +592,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        android:text="4"
+                        android:textAlignment="center"
                         android:background="@drawable/nonselecteditem_dot"
                         >
                     </TextView>
@@ -571,18 +608,19 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/e8"
+                        android:id="@+id/a8"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:background="@drawable/nonselecteditem_dot"
                         android:layout_weight="1"
                         >
                     </TextView>
+
                     <TextView
-                        android:id="@+id/a8"
+                        android:id="@+id/e8"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@drawable/nonselecteditem_dot"
                         android:layout_weight="1"

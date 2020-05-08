@@ -41,7 +41,7 @@ public class MoodTwoActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mood_two);
         toolbar = findViewById(R.id.toolbar1);
-        toolbar.setTitle("Quiz mood 2");
+        toolbar.setTitle("Quiz mode 2");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -300,36 +300,36 @@ public class MoodTwoActivity extends AppCompatActivity implements View.OnClickLi
     }
     private void BackGroundSet(){
         g1.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        g2.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        g2.setBackgroundResource(R.drawable.nonselected_red_dot);
         g3.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        g4.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        g4.setBackgroundResource(R.drawable.nonselected_red_dot);
         g5.setBackgroundResource(R.drawable.nonselecteditem_dot);
         g6.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        g7.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        g7.setBackgroundResource(R.drawable.nonselected_red_dot);
         g8.setBackgroundResource(R.drawable.nonselecteditem_dot);
         d1.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        d2.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        d2.setBackgroundResource(R.drawable.nonselected_red_dot);
         d3.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        d4.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        d4.setBackgroundResource(R.drawable.nonselected_red_dot);
         d5.setBackgroundResource(R.drawable.nonselecteditem_dot);
         d6.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        d7.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        d7.setBackgroundResource(R.drawable.nonselected_red_dot);
         d8.setBackgroundResource(R.drawable.nonselecteditem_dot);
         a1.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        a2.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        a2.setBackgroundResource(R.drawable.nonselected_red_dot);
         a3.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        a4.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        a4.setBackgroundResource(R.drawable.nonselected_red_dot);
         a5.setBackgroundResource(R.drawable.nonselecteditem_dot);
         a6.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        a7.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        a7.setBackgroundResource(R.drawable.nonselected_red_dot);
         a8.setBackgroundResource(R.drawable.nonselecteditem_dot);
         e1.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        e2.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        e2.setBackgroundResource(R.drawable.nonselected_red_dot);
         e3.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        e4.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        e4.setBackgroundResource(R.drawable.nonselected_red_dot);
         e5.setBackgroundResource(R.drawable.nonselecteditem_dot);
         e6.setBackgroundResource(R.drawable.nonselecteditem_dot);
-        e7.setBackgroundResource(R.drawable.nonselecteditem_dot);
+        e7.setBackgroundResource(R.drawable.nonselected_red_dot);
         e8.setBackgroundResource(R.drawable.nonselecteditem_dot);
     }
 }

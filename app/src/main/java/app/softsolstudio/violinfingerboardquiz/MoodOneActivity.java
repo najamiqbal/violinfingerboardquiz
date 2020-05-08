@@ -41,7 +41,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mood_one);
         toolbar = findViewById(R.id.toolbar1);
-        toolbar.setTitle("Quiz mood 1");
+        toolbar.setTitle("Quiz mode 1");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
