@@ -29,7 +29,7 @@
     <ImageView
         android:id="@+id/image1"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="130dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:src="@drawable/mainpage">
@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Violin Fingerboard \n Quiz"
-        android:textSize="28sp"
+        android:textSize="20sp"
         android:textColor="#000"
         android:textStyle="bold"
         android:layout_centerInParent="true"

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,9 +34,11 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
     int wrong_counter = 0, corect_counter = 0,total_counter=0;
     Common common=new Common();
     Animation frombottom, fromtop;
+    Handler myhandler;
     TextView tv_d1, tv_d2, tv_d3, tv_d4, tv_d5, tv_d6, tv_d7, tv_d8, tv_g1, tv_g2, tv_g3, tv_g4, tv_g5, tv_g6, tv_g7, tv_g8, tv_e1,
             tv_e2, tv_e3, tv_e4, tv_e5, tv_e6, tv_e7, tv_e8, tv_a1, tv_a2, tv_a3, tv_a4, tv_a5, tv_a6, tv_a7, tv_a8, tv_correct_counter, tv_wrong_counter;
     ImageView question_image;
+    RelativeLayout mind_think;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -113,6 +117,8 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
         tv_e6.setOnClickListener(this);
         tv_e7.setOnClickListener(this);
         tv_e8.setOnClickListener(this);
+        myhandler = new Handler();
+        mind_think=findViewById(R.id.mind_think);
         tv_wrong_counter = findViewById(R.id.tv_wrong_counter);
         tv_correct_counter = findViewById(R.id.tv_correct_counter);
         question_image = findViewById(R.id.image_question);
@@ -120,6 +126,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void RandomQuestion() {
+        mind_think.setBackgroundColor(getResources().getColor(R.color.white));
         total_counter++;
         if (total_counter>15){
             showDialog();
@@ -515,12 +522,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 } else {
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
+
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -530,12 +550,24 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 } else {
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -545,13 +577,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 } else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.g4:
@@ -560,13 +604,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
 
                 }
                 break;
@@ -576,13 +632,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.g6:
@@ -591,13 +659,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
 
                 }
                 break;
@@ -607,13 +687,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
 
                 }
                 break;
@@ -623,13 +715,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
 
                 }
                 break;
@@ -639,13 +743,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
 
                 }
                 break;
@@ -655,13 +771,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.d3:
@@ -670,13 +798,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.d4:
@@ -685,13 +825,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.d5:
@@ -700,13 +852,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                    // Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.d6:
@@ -715,13 +879,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.d7:
@@ -730,13 +906,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.d8:
@@ -745,13 +933,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                    // Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.a1:
@@ -760,13 +960,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.a2:
@@ -775,13 +987,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.a3:
@@ -790,13 +1014,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.a4:
@@ -805,13 +1041,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.a5:
@@ -820,13 +1068,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.a6:
@@ -835,13 +1095,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.a7:
@@ -850,13 +1122,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.a8:
@@ -865,13 +1149,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.e1:
@@ -880,13 +1176,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.e2:
@@ -895,13 +1203,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.e3:
@@ -910,13 +1230,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.e4:
@@ -925,13 +1257,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.e5:
@@ -940,13 +1284,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.e6:
@@ -955,13 +1311,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.e7:
@@ -970,13 +1338,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
             case R.id.e8:
@@ -985,13 +1365,25 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;
                     tv_correct_counter.setText("Correct: "+corect_counter);
-                    RandomQuestion();
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.green));
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }else {
                     wrong_counter++;
                     tv_wrong_counter.setText("Wrong: "+wrong_counter);
+                    mind_think.setBackgroundColor(getResources().getColor(R.color.lightRed));
                     //Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"101.mp3");
-                    RandomQuestion();
+                    myhandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            RandomQuestion();
+                        }
+                    }, 230);
                 }
                 break;
 
