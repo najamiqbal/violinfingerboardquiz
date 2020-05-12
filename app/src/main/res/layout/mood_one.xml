@@ -61,6 +61,18 @@
 
             </ImageView>
 
+            <Button
+                android:id="@+id/correctanwsers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show answers!"
+                android:background="@drawable/bg_btn_green"
+                android:layout_above="@id/tv_correct_counter"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:textAllCaps="false">
+            </Button>
+
 
             <TextView
                 android:id="@+id/tv_wrong_counter"
@@ -145,17 +157,23 @@
                 android:weightSum="8">
 
 
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="1dp"
                 android:layout_weight="1"
                 android:background="#000"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"
                 android:orientation="horizontal"
                 android:weightSum="4">
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:background="#000">
 
 
                 <TextView
@@ -212,6 +230,9 @@
                     android:layout_weight="1"
                     >
                 </TextView>
+
+
+                </LinearLayout>
             </LinearLayout>
 <!--                <TextView
                     android:layout_width="wrap_content"

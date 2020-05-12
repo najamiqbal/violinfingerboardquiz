@@ -3,9 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+    <item android:id="@+id/learn"
+        android:title="learn"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_questionmark"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/share_app"
         android:title="share"
         android:orderInCategory="100"
         android:icon="@drawable/ic_share_black_24dp"
         app:showAsAction="always"/>
+
 </menu>

@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.share_app:
                 ShareApp();
                 break;
+            case R.id.learn:
+                startActivity(new Intent(MainActivity.this,LearnActivity.class));
+                break;
 
         }
         return super.onOptionsItemSelected(item);

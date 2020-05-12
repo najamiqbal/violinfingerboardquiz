@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -151,9 +152,23 @@ public class MoodTwoActivity extends AppCompatActivity implements View.OnClickLi
             answer4.setTag(questionString);
             answer4.setImageDrawable(drawable);
             mAnswer = num.get(4);
-            int id = getResources().getIdentifier(mAnswer, "id", getPackageName());
-            TextView textView = findViewById(id);
-            textView.setBackgroundResource(R.drawable.non_dot);
+            if (TextUtils.equals(mAnswer,"a11") || TextUtils.equals(mAnswer,"a44") || TextUtils.equals(mAnswer,"a66")
+            || TextUtils.equals(mAnswer,"d11") || TextUtils.equals(mAnswer,"d44") || TextUtils.equals(mAnswer,"d66")
+                    || TextUtils.equals(mAnswer,"e22") || TextUtils.equals(mAnswer,"e44") || TextUtils.equals(mAnswer,"e66")
+                    || TextUtils.equals(mAnswer,"g11") || TextUtils.equals(mAnswer,"g33") || TextUtils.equals(mAnswer,"g66"))
+            {
+
+                String stringAnswer= mAnswer.substring(0, mAnswer.length() - 1);
+                int id = getResources().getIdentifier(stringAnswer, "id", getPackageName());
+                TextView textView = findViewById(id);
+                textView.setBackgroundResource(R.drawable.non_dot);
+
+            }else {
+                int id = getResources().getIdentifier(mAnswer, "id", getPackageName());
+                TextView textView = findViewById(id);
+                textView.setBackgroundResource(R.drawable.non_dot);
+            }
+
             //textView.setBackgroundColor(getResources().getColor(R.color.green));
         }
     }
