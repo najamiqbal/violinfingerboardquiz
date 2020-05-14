@@ -131,7 +131,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
     private void RandomQuestion() {
         mind_think.setBackgroundColor(getResources().getColor(R.color.white));
         total_counter++;
-        if (total_counter>15){
+        if (total_counter>20){
             showDialog();
         }else {
 
@@ -448,13 +448,6 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 answer_1 = "e7";
                 anwser_2 = "";
                 break;
-            case 45:
-                question_image.setBackgroundResource(R.drawable.a55);
-                frombottom = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
-                question_image.setAnimation(frombottom);
-                answer_1 = "a5";
-                anwser_2 = "a55";
-                break;
         }
 
         }
@@ -478,7 +471,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
         TextView txtCorrect = mView.findViewById(R.id.tx_correct);
         txtWrong.setText("Wrong "+wrong_counter);
         txtCorrect.setText("Correct "+corect_counter);
-        txttotal.setText("Total Scores "+corect_counter+"/15");
+        txttotal.setText("Total Scores "+corect_counter+"/20");
 
         alertDialogBuilderUserInput
                 .setCancelable(false);
@@ -1104,7 +1097,7 @@ public class MoodOneActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 break;
             case R.id.a6:
-                if (TextUtils.equals(answer_1,"a5") && TextUtils.equals(anwser_2,"a55")){
+                if (TextUtils.equals(answer_1,"a5") && TextUtils.equals(anwser_2,"")){
                     //Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
                     common.SoundPlayer(MoodOneActivity.this,"100.mp3");
                     corect_counter++;

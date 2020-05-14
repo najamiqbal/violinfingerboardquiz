@@ -25,6 +25,8 @@
         <activity android:name=".MoodOneActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".LearnActivity"/>
+        <activity android:name=".ModeTwo"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

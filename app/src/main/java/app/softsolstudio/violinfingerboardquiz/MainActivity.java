@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this,MoodOneActivity.class));
                 break;
             case R.id.btn_mood2:
-                startActivity(new Intent(MainActivity.this,MoodTwoActivity.class));
+                startActivity(new Intent(MainActivity.this,ModeTwo.class));
                 break;
         }
     }
